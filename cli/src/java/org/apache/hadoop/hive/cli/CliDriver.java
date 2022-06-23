@@ -680,12 +680,12 @@ public class CliDriver {
   }
 
   /**
-   * todo 程序的入口，Driver的main方法
+   * // todo 程序的入口，Driver的main方法
    * @param args
    * @throws Exception
    */
   public static void main(String[] args) throws Exception {
-    //todo Hive的SQL执行入口
+    // todo Hive的SQL执行入口
     //实例一个客户端驱动
     //返回值是代码,如0正常退出,5就是在控制台Ctrl+c
     int ret = new CliDriver().run(args);
@@ -693,13 +693,20 @@ public class CliDriver {
   }
 
   /**
-   *
+   * todo run()方法
+   * SQL的样式:
+   *  1、select * from xxx
+   *  2、hive -e "select * from xxx"
+   *  3、hive -f xxx.sql
+   *  4、source  xxx
    * @param args
    * @return
    * @throws Exception
    */
   public  int run(String[] args) throws Exception {
-
+    /**
+     * 解析参数的程序
+     */
     OptionsProcessor oproc = new OptionsProcessor();
     if (!oproc.process_stage1(args)) {
       return 1;
